@@ -8,7 +8,7 @@ Not a real application — file an issue here to trigger Artisan's Gate 1
 
 ## Landing Page
 
-This repository includes a static landing page (`index.html`) featuring an "Artisan Demo" header, welcome message, and centered styling with readable typography.
+This repository includes a static landing page (`index.html`) featuring an "Artisan Demo" header, a tagline highlighting that it is an autonomous multi-agent platform running on Google Cloud, and centered styling with readable typography.
 
 ### How to View
 
