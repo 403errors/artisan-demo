@@ -8,7 +8,7 @@ Not a real application — file an issue here to trigger Artisan's Gate 1
 
 ## Landing Page
 
-This repository includes a static landing page (`index.html`) featuring an "Artisan Demo" header, welcome message, and centered styling with readable typography.
+This repository includes a static landing page (`index.html`) featuring an "Artisan Demo" header, "Powered by Gemini and Vertex AI" tagline, and centered styling with readable typography.
 
 ### How to View
 
