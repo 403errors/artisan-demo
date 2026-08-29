@@ -1,3 +1,4 @@
+<!-- trace fix verification -->
 # artisan-demo
 
 Throwaway demo repository used to exercise Artisan's autonomous issue → PR loop
