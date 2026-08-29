@@ -3,8 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artisan Demo</title>
+  <meta name="description" content="Artisan Demo - Autonomous Issue to PR workflow powered by Gemini and Vertex AI for the All Things Agentic Hackathon 2026.">
+  <title>Artisan Demo — Autonomous Issue to PR Loop</title>
   <style>
+    :root {
+      --primary: #2563eb;
+      --primary-hover: #1d4ed8;
+      --primary-light: #eff6ff;
+      --accent: #7c3aed;
+      --text-main: #111827;
+      --text-muted: #4b5563;
+      --bg-body: #f8fafc;
+      --bg-card: #ffffff;
+      --border-color: #e2e8f0;
+      --code-bg: #f1f5f9;
+      --font-sans: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace;
+    }
+
     * {
       box-sizing: border-box;
       margin: 0;
@@ -12,43 +28,241 @@
     }
 
     body {
-      font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      font-family: var(--font-sans);
       line-height: 1.6;
-      color: #333333;
-      background-color: #f8f9fa;
+      color: var(--text-main);
+      background-color: var(--bg-body);
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
     }
 
-    .container {
-      max-width: 600px;
-      padding: 2.5rem;
-      background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+    .page-wrapper {
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    header.hero {
+      text-align: center;
+      padding: 2.5rem 2rem;
+      background: linear-gradient(135deg, #ffffff 0%, #f0f7ff 100%);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.8125rem;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      color: var(--primary);
+      background-color: var(--primary-light);
+      padding: 0.35rem 0.85rem;
+      border-radius: 9999px;
+      margin-bottom: 1rem;
+      border: 1px solid rgba(37, 99, 235, 0.2);
     }
 
     h1 {
-      font-size: 2.25rem;
-      font-weight: 700;
-      color: #111827;
+      font-size: 2.5rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+      letter-spacing: -0.025em;
+    }
+
+    .tagline {
+      font-size: 1.25rem;
+      font-weight: 500;
+      color: var(--accent);
       margin-bottom: 1rem;
     }
 
+    .hero-desc {
+      font-size: 1.05rem;
+      color: var(--text-muted);
+      max-width: 620px;
+      margin: 0 auto;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .card {
+      background-color: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      font-size: 1.35rem;
+      font-weight: 700;
+      color: var(--text-main);
+      margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
     p {
-      font-size: 1.125rem;
-      color: #4b5563;
+      color: var(--text-muted);
+      margin-bottom: 1rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    .pipeline-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    @media (min-width: 640px) {
+      .pipeline-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    .pipeline-step {
+      background-color: var(--bg-body);
+      border: 1px solid var(--border-color);
+      border-radius: 8px;
+      padding: 1.25rem;
+    }
+
+    .pipeline-step h3 {
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--text-main);
+      margin-bottom: 0.5rem;
+    }
+
+    .pipeline-step ul {
+      list-style-type: disc;
+      padding-left: 1.25rem;
+      color: var(--text-muted);
+      font-size: 0.9375rem;
+    }
+
+    .pipeline-step li {
+      margin-bottom: 0.25rem;
+    }
+
+    pre, code {
+      font-family: var(--font-mono);
+      font-size: 0.875rem;
+    }
+
+    code {
+      background-color: var(--code-bg);
+      padding: 0.15rem 0.4rem;
+      border-radius: 4px;
+      color: #0f172a;
+    }
+
+    pre {
+      background-color: #0f172a;
+      color: #f8fafc;
+      padding: 1rem;
+      border-radius: 8px;
+      overflow-x: auto;
+      margin: 0.75rem 0;
+    }
+
+    pre code {
+      background-color: transparent;
+      padding: 0;
+      color: inherit;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1.5rem 0;
+      font-size: 0.875rem;
+      color: var(--text-muted);
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Artisan Demo</h1>
-    <p>Powered by Gemini and Vertex AI</p>
-  </main>
+  <div class="page-wrapper">
+    <header class="hero">
+      <span class="badge">All Things Agentic Hackathon 2026</span>
+      <h1>Artisan Demo</h1>
+      <p class="tagline">Powered by Gemini and Vertex AI</p>
+      <p class="hero-desc">
+        A demonstration repository showcasing autonomous issue triage, implementation planning, code execution, and pull request generation.
+      </p>
+    </header>
+
+    <main>
+      <section class="card">
+        <h2>About the Project</h2>
+        <p>
+          <strong>Artisan</strong> is an autonomous software engineering agent designed to resolve repository issues end-to-end. Built with Google Gemini and Vertex AI, Artisan monitors issues, performs structured reasoning, applies necessary edits, and submits comprehensive Pull Requests.
+        </p>
+      </section>
+
+      <section class="card">
+        <h2>Autonomous Pipeline Workflow</h2>
+        <p>When an issue is created in this repository, Artisan activates a two-stage pipeline:</p>
+        <div class="pipeline-grid">
+          <div class="pipeline-step">
+            <h3>Gate 1: Intake &amp; Triage</h3>
+            <ul>
+              <li>Validates issue requirements</li>
+              <li>Extracts problem statements &amp; scope</li>
+              <li>Verifies safety &amp; security bounds</li>
+            </ul>
+          </div>
+          <div class="pipeline-step">
+            <h3>Gate 2: Autonomous Execution</h3>
+            <ul>
+              <li><strong>Plan:</strong> Formulates actionable steps</li>
+              <li><strong>Execute:</strong> Modifies codebase files</li>
+              <li><strong>Verify:</strong> Validates syntax &amp; tests</li>
+              <li><strong>PR:</strong> Submits review-ready Pull Request</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="card">
+        <h2>Local Development &amp; Setup</h2>
+        <p>To run this landing page locally, serve it using any standard static file server:</p>
+        <pre><code># Using Python 3
+python3 -m http.server 8000
+
+# Using Node.js
+npx serve .</code></pre>
+        <p>Then open <code>http://localhost:8000</code> in your browser.</p>
+      </section>
+
+      <section class="card">
+        <h2>Triggering Artisan</h2>
+        <p>
+          Open a new issue in this repository describing a bug fix or feature. Artisan will autonomously inspect the issue, run its intake verification, formulate an execution plan, and submit a Pull Request with the resolution.
+        </p>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Artisan Demo &bull; All Things Agentic Hackathon</p>
+    </footer>
+  </div>
 </body>
 </html>
