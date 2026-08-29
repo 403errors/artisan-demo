@@ -1,3 +1,5 @@
+<!-- trace diagnostic test 2 -->
+
 # artisan-demo
 
 Throwaway demo repository used to exercise Artisan's autonomous issue → PR loop
