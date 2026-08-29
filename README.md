@@ -24,3 +24,7 @@ npx serve .
 ```
 
 Then open `http://localhost:8000` (or the URL printed by your server) in your browser.
+
+## Contributing
+
+Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on prerequisites, local setup, branching strategy, commit standards, and the pull request submission process.
