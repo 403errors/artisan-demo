@@ -1,5 +1,5 @@
 <!-- trace fix verification -->
-# artisan-demo
+# Artisan Demo
 
 Throwaway demo repository used to exercise Artisan's autonomous issue → PR loop
 for the All Things Agentic Hackathon 2026 submission.
