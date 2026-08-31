@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Artisan Demo</title>
+  <meta name="description" content="Artisan Demo - Autonomous Issue to PR pipeline powered by Gemini and Vertex AI for the All Things Agentic Hackathon 2026.">
+  <title>Artisan Demo - Autonomous Issue to PR Pipeline</title>
   <style>
     * {
       box-sizing: border-box;
@@ -14,41 +15,223 @@
     body {
       font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
       line-height: 1.6;
-      color: #333333;
-      background-color: #f8f9fa;
+      color: #1f2937;
+      background-color: #f3f4f6;
       min-height: 100vh;
       display: flex;
-      justify-content: center;
+      flex-direction: column;
       align-items: center;
-      text-align: center;
-      padding: 1.5rem;
+      padding: 2rem 1rem;
     }
 
     .container {
-      max-width: 600px;
-      padding: 2.5rem;
+      width: 100%;
+      max-width: 800px;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    header {
       background-color: #ffffff;
-      border-radius: 8px;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05), 0 1px 3px rgba(0, 0, 0, 0.1);
+      padding: 2.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      text-align: center;
+    }
+
+    .badge {
+      display: inline-block;
+      background-color: #e0e7ff;
+      color: #4338ca;
+      font-size: 0.875rem;
+      font-weight: 600;
+      padding: 0.25rem 0.75rem;
+      border-radius: 9999px;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
     }
 
     h1 {
       font-size: 2.25rem;
-      font-weight: 700;
+      font-weight: 800;
       color: #111827;
+      margin-bottom: 0.5rem;
+    }
+
+    .tagline {
+      font-size: 1.125rem;
+      color: #4b5563;
+      font-weight: 500;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    section {
+      background-color: #ffffff;
+      padding: 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+    }
+
+    h2 {
+      font-size: 1.375rem;
+      font-weight: 700;
+      color: #1f2937;
       margin-bottom: 1rem;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      border-bottom: 2px solid #f3f4f6;
+      padding-bottom: 0.5rem;
     }
 
     p {
-      font-size: 1.125rem;
+      font-size: 1rem;
       color: #4b5563;
+      margin-bottom: 0.75rem;
+    }
+
+    p:last-child {
+      margin-bottom: 0;
+    }
+
+    ul {
+      list-style-position: inside;
+      color: #4b5563;
+      margin-left: 0.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.5rem;
+    }
+
+    li {
+      font-size: 1rem;
+    }
+
+    li strong {
+      color: #111827;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card-item {
+      background-color: #f9fafb;
+      border: 1px solid #e5e7eb;
+      border-radius: 8px;
+      padding: 1rem;
+    }
+
+    .card-item h3 {
+      font-size: 1rem;
+      font-weight: 600;
+      color: #111827;
+      margin-bottom: 0.25rem;
+    }
+
+    .card-item p {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    footer {
+      background-color: #ffffff;
+      padding: 1.5rem 2rem;
+      border-radius: 12px;
+      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+      text-align: center;
+      color: #6b7280;
+      font-size: 0.875rem;
+    }
+
+    footer p {
+      font-size: 0.875rem;
+      color: #6b7280;
+    }
+
+    footer p + p {
+      margin-top: 0.25rem;
     }
   </style>
 </head>
 <body>
-  <main class="container">
-    <h1>Artisan Demo</h1>
-    <p>Powered by Gemini and Vertex AI</p>
-  </main>
+  <div class="container">
+    <header>
+      <span class="badge">All Things Agentic Hackathon 2026</span>
+      <h1>Artisan Demo</h1>
+      <p class="tagline">Autonomous Issue &rarr; PR Loop Powered by Gemini and Vertex AI</p>
+    </header>
+
+    <main>
+      <section id="overview">
+        <h2>Project Overview</h2>
+        <p>
+          Artisan is an autonomous software engineering agent system engineered to turn user-reported issues into verified, high-quality pull requests without human intervention.
+        </p>
+        <p>
+          This demo repository serves as a live testbed to showcase and exercise the end-to-end autonomous lifecycle during the All Things Agentic Hackathon 2026.
+        </p>
+      </section>
+
+      <section id="workflow">
+        <h2>Autonomous Pipeline Architecture</h2>
+        <div class="grid">
+          <div class="card-item">
+            <h3>Gate 1: Intake &amp; Triage</h3>
+            <p>Analyzes incoming issue descriptions, validates reproducibility, and defines clear acceptance criteria.</p>
+          </div>
+          <div class="card-item">
+            <h3>Gate 2: Planning</h3>
+            <p>Formulates a precise, multi-step execution plan specifying files, tests, and dependencies to modify.</p>
+          </div>
+          <div class="card-item">
+            <h3>Gate 2: Execution</h3>
+            <p>Coding agent applies incremental code edits, adds test coverage, and updates documentation.</p>
+          </div>
+          <div class="card-item">
+            <h3>Gate 2: Verification &amp; PR</h3>
+            <p>Validates code integrity, runs tests, and opens an automated Pull Request with a clear change summary.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="tech-stack">
+        <h2>Technology Stack</h2>
+        <ul>
+          <li><strong>LLM &amp; Reasoning:</strong> Google Gemini models for deep contextual code analysis and planning.</li>
+          <li><strong>Cloud Platform:</strong> Vertex AI providing robust, enterprise-grade AI infrastructure.</li>
+          <li><strong>Agent Framework:</strong> Artisan multi-gate autonomous execution agent.</li>
+          <li><strong>Version Control:</strong> Automated GitHub integration for branch management and PR creation.</li>
+        </ul>
+      </section>
+
+      <section id="presentation">
+        <h2>Presentation &amp; Demonstration Details</h2>
+        <p>
+          During the hackathon presentation, Artisan demonstrates real-time issue processing:
+        </p>
+        <ul>
+          <li>Filing an issue triggers automated webhook ingestion.</li>
+          <li>Artisan plans and implements the necessary changes directly against the repository checkout.</li>
+          <li>Syntax, test cases, and markup integrity checks run automatically before submitting a pull request.</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2026 Artisan Demo &bull; All Things Agentic Hackathon</p>
+      <p>Powered by Gemini and Vertex AI</p>
+    </footer>
+  </div>
 </body>
 </html>
