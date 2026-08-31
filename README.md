@@ -9,7 +9,17 @@ Not a real application — file an issue here to trigger Artisan's Gate 1
 
 ## Landing Page
 
-This repository includes a static landing page (`index.html`) featuring an "Artisan Demo" header, "Powered by Gemini and Vertex AI" tagline, and centered styling with readable typography.
+This repository includes a structured static landing page (`index.html`) with comprehensive HTML5 metadata and semantic sections detailing the Artisan autonomous engineering system.
+
+### Page Structure & Content
+
+- **Metadata**: Includes charset encoding, responsive viewport configurations, and descriptive search/social metadata.
+- **Header**: Features the All Things Agentic Hackathon badge, main title ("Artisan Demo"), and tagline.
+- **Project Overview**: Introduces Artisan's autonomous issue-to-PR agent system and purpose.
+- **Autonomous Pipeline Architecture**: Outlines the multi-gate lifecycle including Gate 1 (Intake & Triage) and Gate 2 (Planning, Execution, Verification & PR).
+- **Technology Stack**: Details the underlying technologies, including Google Gemini models and Google Cloud Vertex AI infrastructure.
+- **Presentation & Demonstration Details**: Explains the live end-to-end hackathon demonstration flow.
+- **Footer**: Contains event attribution and Gemini / Vertex AI credits.
 
 ### How to View
 
