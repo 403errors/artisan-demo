@@ -24,3 +24,7 @@ npx serve .
 ```
 
 Then open `http://localhost:8000` (or the URL printed by your server) in your browser.
+
+## License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
