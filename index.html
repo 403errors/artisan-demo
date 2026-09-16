@@ -132,11 +132,15 @@
       padding: 1rem;
     }
 
+    .card-item h2,
     .card-item h3 {
       font-size: 1rem;
       font-weight: 600;
       color: #111827;
       margin-bottom: 0.25rem;
+      border-bottom: none;
+      padding-bottom: 0;
+      display: block;
     }
 
     .card-item p {
@@ -187,19 +191,19 @@
         <h2>Autonomous Pipeline Architecture</h2>
         <div class="grid">
           <div class="card-item">
-            <h3>Gate 1: Intake &amp; Triage</h3>
+            <h2>Gate 1: Intake &amp; Triage</h2>
             <p>Analyzes incoming issue descriptions, validates reproducibility, and defines clear acceptance criteria.</p>
           </div>
           <div class="card-item">
-            <h3>Gate 2: Planning</h3>
+            <h2>Gate 2: Planning</h2>
             <p>Formulates a precise, multi-step execution plan specifying files, tests, and dependencies to modify.</p>
           </div>
           <div class="card-item">
-            <h3>Gate 2: Execution</h3>
+            <h2>Gate 2: Execution</h2>
             <p>Coding agent applies incremental code edits, adds test coverage, and updates documentation.</p>
           </div>
           <div class="card-item">
-            <h3>Gate 2: Verification &amp; PR</h3>
+            <h2>Gate 2: Verification &amp; PR</h2>
             <p>Validates code integrity, runs tests, and opens an automated Pull Request with a clear change summary.</p>
           </div>
         </div>
